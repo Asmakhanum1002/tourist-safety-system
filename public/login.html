@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Tourist Safety System</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            text-align: center;
+            color: white;
+            padding-top: 100px;
+        }
+
+        .box {
+            background: white;
+            color: black;
+            display: inline-block;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e3c72;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🌍 Smart Tourist Safety Monitoring System</h1>
+
+<div class="box">
+    <h2>🔐 Secure Login</h2>
+
+    <input id="u" placeholder="Username"><br>
+    <input id="p" type="password" placeholder="Password"><br>
+
+    <button onclick="login()">Login</button>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+function login(){
+fetch("/login",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+username: u.value,
+password: p.value
+})
+})
+.then(r=>r.json())
+.then(d=>{
+if(d.success){
+msg.innerText="Login Successful";
+setTimeout(()=>location.href="index.html",1000);
+}else{
+msg.innerText="Invalid Credentials";
+}
+});
+}
+</script>
+
+</body>
+</html>

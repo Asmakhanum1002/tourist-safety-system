@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Tourist Safety System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') no-repeat center center/cover;
+            color: white;
+        }
+
+        .overlay {
+            background: rgba(0,0,0,0.7);
+            height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px;
+            margin-top: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .alert-btn {
+            background: red;
+            color: white;
+        }
+
+        .geo-btn {
+            background: orange;
+            color: white;
+        }
+
+        .status {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav a {
+            color: #00d4ff;
+            margin: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>🚨 Smart Tourist Safety Monitoring System</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h3>📍 Geo-Fencing</h3>
+        <p>Monitor safe zones in real-time</p>
+        <button class="geo-btn" onclick="startTracking()">Start Tracking</button>
+    </div>
+
+    <div class="card">
+        <h3>🚨 Emergency Alert</h3>
+        <p>Send instant distress signal</p>
+        <button class="alert-btn" onclick="manualAlert()">Send Alert</button>
+    </div>
+
+    <div class="card">
+        <h3>🧠 AI Status</h3>
+        <p id="aiStatus">System Ready</p>
+    </div>
+
+</div>
+
+<div class="status" id="status"></div>
+
+<div class="nav">
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="/logout">Logout</a>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

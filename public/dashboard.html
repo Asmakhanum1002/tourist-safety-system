@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>📊 Incident Dashboard</h1>
+
+<button onclick="load()">Load Alerts</button>
+<ul id="list"></ul>
+
+<script>
+function load(){
+fetch("/alerts")
+.then(r=>r.json())
+.then(data=>{
+list.innerHTML="";
+data.forEach(a=>{
+let li=document.createElement("li");
+li.innerText=`${a.user} | ${a.risk} | ${a.lat},${a.lon} | ${a.time}`;
+list.appendChild(li);
+});
+});
+}
+</script>
+
+</body>
+</html>
